@@ -1,0 +1,10 @@
+apps:
+  - name: worker-run-payroll
+    script: artisan
+    interpreter: php
+    instances: 1
+    args:
+      - queue:work
+      - --tries=5
+      - --timeout=9000
+      - --queue=run_payroll
